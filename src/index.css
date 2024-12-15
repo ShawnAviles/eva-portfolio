@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&family=Arizonia&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply antialiased font-caudex;
+		@apply bg-sky-100;
+	}
+}
+
+@layer components {
+	.btn {
+		@apply px-6 py-2 rounded-full font-medium transition-all duration-200;
+	}
+
+	.btn-primary {
+		@apply bg-primary text-white hover:bg-primary/90;
+	}
+
+	.btn-outline {
+		@apply border-2 border-primary text-primary hover:bg-primary hover:text-white;
+	}
+
+	.fancy-title {
+		@apply font-arizonia text-4xl md:text-5xl lg:text-6xl text-primary;
+	}
+}
