@@ -23,11 +23,6 @@ export default function Home() {
 							Scenic Artist
 						</p>
 						{/* </div> */}
-						<p className="text-gray-600 mb-8 max-w-lg">
-							Transforming spaces into captivating visual stories through the
-							art of scenic design. With a passion for creating immersive
-							environments that bring productions to life.
-						</p>
 						<div className="flex gap-4">
 							<Link to="/portfolio" className="btn btn-primary gap-2">
 								View My Work

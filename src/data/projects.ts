@@ -4,12 +4,41 @@ export interface Project {
 	description: string;
 	date: string; // month year
 	year: string; // year or year range
+	sortDate: string; // for sorting
 	coverImage: string;
 	images: Array<{
 		src: string;
 		caption: string;
 	}>;
 }
+
+const monthToNumber = (month: string): number => {
+	const months: { [key: string]: number } = {
+		january: 0,
+		february: 1,
+		march: 2,
+		april: 3,
+		may: 4,
+		june: 5,
+		july: 6,
+		august: 7,
+		september: 8,
+		october: 9,
+		november: 10,
+		december: 11,
+	};
+	return months[month.toLowerCase()] || 0;
+};
+
+const getDateFromString = (dateStr: string): Date => {
+	if (!dateStr) return new Date(0); // for class-projects
+	// if Semester and Year - default to end of semester
+	if (dateStr.toLowerCase().includes("spring")) {
+		const year = parseInt(dateStr.split(" ")[1]);
+		return new Date(year, monthToNumber("may"), 31);
+	}
+	return new Date(dateStr);
+};
 
 const getProjectsDetail = (path: string) => {
 	const parts = path.split("/");
@@ -51,16 +80,38 @@ const getProjectsDetail = (path: string) => {
 };
 
 // Update whenever
-const description: { [key: string]: string } = {
-	"jesus-christ-superstar-fall-2024": "Scenic Charge",
-	"sophisticated-ladies-spring-2024": "Scenic Charge",
-	"spring-awakening-fall-2023": "Scenic Artist",
-	"marie-antoinette-spring-2024": "Scenic Artist",
-	"msu-haunted-house-fall-2024": "Scenic Artist",
-	"pride-&-prejudice-fall-2024": "Scenic Artist",
-	"anna-in-the-tropics-fall-2023": "Scenic Artist",
-	"class-projects":
-		"Projects completed while attending Montclair State University",
+const additional: { [key: string]: { [key: string]: string } } = {
+	"jesus-christ-superstar-fall-2024": {
+		desc: "Scenic Charge",
+		sortDate: "November,2024",
+	},
+	"sophisticated-ladies-spring-2024": {
+		desc: "Scenic Charge",
+		sortDate: "April,2024",
+	},
+	"spring-awakening-fall-2023": {
+		desc: "Scenic Artist",
+		sortDate: "November,2023",
+	},
+	"marie-antoinette-spring-2024": {
+		desc: "Scenic Artist",
+		sortDate: "March,2024",
+	},
+	"msu-haunted-house-fall-2024": {
+		desc: "Scenic Artist",
+		sortDate: "October,2024",
+	},
+	"pride-&-prejudice-fall-2024": {
+		desc: "Scenic Artist",
+		sortDate: "October,2024",
+	},
+	"anna-in-the-tropics-fall-2023": {
+		desc: "Scenic Artist",
+		sortDate: "October,2023",
+	},
+	"class-projects": {
+		desc: "Projects completed while attending Montclair State University",
+	},
 };
 
 export const generateImageUrls = async (): Promise<Project[]> => {
@@ -86,9 +137,10 @@ export const generateImageUrls = async (): Promise<Project[]> => {
 			projectsMap[projectId] = {
 				id: projectId,
 				title: projectTitle,
-				description: description[projectId] || "",
+				description: additional[projectId].desc || "",
 				date: projectMonthYear,
 				year: projectYear,
+				sortDate: additional[projectId].sortDate || projectMonthYear,
 				coverImage: relativePathCover,
 				images: [],
 			};
@@ -100,6 +152,15 @@ export const generateImageUrls = async (): Promise<Project[]> => {
 			caption: "",
 		});
 	}
-	console.log(projectsMap);
-	return Object.values(projectsMap);
+
+	const sortedProjects = Object.values(projectsMap).sort((a, b) => {
+		if (a.id === "class-projects") return 1;
+		if (b.id === "class-projects") return -1;
+		return (
+			getDateFromString(b.sortDate).getTime() -
+			getDateFromString(a.sortDate).getTime()
+		);
+	});
+
+	return Object.values(sortedProjects);
 };
