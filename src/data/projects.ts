@@ -168,7 +168,6 @@ export const generateImageUrls = async (): Promise<Project[]> => {
 };
 
 export const getProjects = async (): Promise<Project[]> => {
-	console.log(import.meta.env);
 	if (import.meta.env.DEV) {
 		const projects = await generateImageUrls();
 		return projects;
