@@ -4,6 +4,13 @@
 		{ "src": "/about", "dest": "/" },
 		{ "src": "/contact", "dest": "/" },
 		{ "src": "/portfolio", "dest": "/" },
-		{ "src": "/portfolio/jesus-christ-superstar-fall-2024", "dest": "/" }
+		{ "src": "/portfolio/jesus-christ-superstar-fall-2024", "dest": "/" },
+		{ "src": "/portfolio/msu-haunted-house-fall-2024", "dest": "/" },
+		{ "src": "/portfolio/pride-&-prejudice-fall-2024", "dest": "/" },
+		{ "src": "/portfolio/sophisticated-ladies-spring-2024", "dest": "/" },
+		{ "src": "/portfolio/marie-antoinette-spring-2024", "dest": "/" },
+		{ "src": "/portfolio/spring-awakening-fall-2023", "dest": "/" },
+		{ "src": "/portfolio/anna-in-the-tropics-fall-2023", "dest": "/" },
+		{ "src": "/portfolio/class-projects", "dest": "/" }
 	]
 }
