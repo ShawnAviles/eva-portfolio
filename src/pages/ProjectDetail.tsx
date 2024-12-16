@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { useState, useEffect } from "react";
-import { generateImageUrls, Project } from "../data/projects";
+import { getProjects, Project } from "../data/projects";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
@@ -14,7 +14,7 @@ export default function ProjectDetail() {
 
 	useEffect(() => {
 		const fetchProject = async () => {
-			const generated = await generateImageUrls();
+			const generated = await getProjects();
 			setProjects(generated);
 		};
 		fetchProject();

@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
 import { useState, useEffect } from "react";
-import { Project, generateImageUrls } from "../data/projects";
+import { Project, getProjects } from "../data/projects";
 
 export default function Portfolio() {
 	const [projects, setProjects] = useState<Project[]>([]);
 
 	useEffect(() => {
 		const fetchProject = async () => {
-			const generated = await generateImageUrls();
+			const generated = await getProjects();
+			console.log(generated);
 			setProjects(generated);
 		};
 		fetchProject();
@@ -26,12 +27,6 @@ export default function Portfolio() {
 					<h1 className="font-serif text-4xl md:text-5xl text-primary mb-6">
 						Portfolio
 					</h1>
-					<p className="text-gray-600 max-w-2xl mx-auto">
-						Explore a collection of my scenic design work across theater
-						productions and creative collaborations. Each project represents a
-						unique story brought to life through artistic vision and technical
-						expertise.
-					</p>
 				</motion.div>
 
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

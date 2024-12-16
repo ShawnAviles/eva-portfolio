@@ -1,3 +1,5 @@
+import { projectsDataF2024 } from "./projectDataF2024";
+
 export interface Project {
 	id: string; // name of folder
 	title: string; // name of project formatted
@@ -163,4 +165,14 @@ export const generateImageUrls = async (): Promise<Project[]> => {
 	});
 
 	return Object.values(sortedProjects);
+};
+
+export const getProjects = async (): Promise<Project[]> => {
+	console.log(import.meta.env);
+	if (import.meta.env.DEV) {
+		const projects = await generateImageUrls();
+		return projects;
+	} else {
+		return projectsDataF2024;
+	}
 };
