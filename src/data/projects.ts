@@ -118,7 +118,7 @@ const additional: { [key: string]: { [key: string]: string } } = {
 
 export const generateImageUrls = async (): Promise<Project[]> => {
 	const projectImages = import.meta.glob(
-		"./../assets/projects/**/*.{jpg,png,PNG,jpeg,webp}"
+		"./../../public/assets/projects/**/*.{jpg,png,PNG,jpeg,webp}"
 	);
 
 	const projectsMap: { [key: string]: Project } = {};

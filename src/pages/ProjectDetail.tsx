@@ -79,6 +79,7 @@ export default function ProjectDetail() {
 								}}
 							>
 								<img
+									loading="lazy"
 									src={image.src}
 									alt={image.caption}
 									className="w-full h-72 object-cover rounded-lg transition-all duration-300 group-hover:scale-105 hover:brightness-50"

@@ -42,11 +42,13 @@ export default function Home() {
 					>
 						<div className="space-y-4">
 							<img
+								loading="lazy"
 								src={homeImage1}
 								alt="Profile Picture 1"
 								className="w-full h-48 object-cover rounded-lg"
 							/>
 							<img
+								loading="lazy"
 								src={homeImage2}
 								alt="Profile Picuture 2"
 								className="w-full h-64 object-cover rounded-lg"
@@ -54,6 +56,7 @@ export default function Home() {
 						</div>
 						<div className="pt-8">
 							<img
+								loading="lazy"
 								src={homeImage3}
 								alt="Profile Picture 3"
 								className="w-full h-80 object-cover rounded-lg"

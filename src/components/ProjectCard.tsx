@@ -23,6 +23,7 @@ export default function ProjectCard({
 		>
 			<Link to={`/portfolio/${id}`}>
 				<img
+					loading="lazy"
 					src={image}
 					alt={title}
 					className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-110"
