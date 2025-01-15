@@ -143,7 +143,7 @@ export default function About() {
 						<a
 							className="btn btn-primary"
 							href={resume}
-							download="Eva_Aviles_Resume"
+							download="Eva_Aviles_Resume.pdf"
 						>
 							Download Resume
 						</a>

@@ -1,3 +1,9 @@
+// DEPRECATED APPROACH - Unused File
+// Auto Generate Projects JSON from public directory of images when in dev mode
+// This is a workaround to avoid hardcoding image paths in the projects data
+// Switched to using Cloudinary for image hosting + CDN,
+// see portfolio_assets.ts for more info
+
 import { projectsDataF2024 } from "./projectDataF2024";
 
 export interface Project {
@@ -10,7 +16,8 @@ export interface Project {
 	coverImage: string;
 	images: Array<{
 		src: string;
-		caption: string;
+		url?: string;
+		caption?: string;
 	}>;
 }
 

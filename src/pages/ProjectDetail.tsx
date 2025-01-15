@@ -1,24 +1,17 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
-import { useState, useEffect } from "react";
-import { getProjects, Project } from "../data/projects";
+import { useState } from "react";
+import { portfolioAssets as projects } from "../data/portfolio_assets";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import { CloudinaryImage } from "../components/CloudinaryImage";
+import { cldToUrl } from "../lib/cloudinary";
 
 export default function ProjectDetail() {
 	const { id } = useParams();
 	const [isOpen, setIsOpen] = useState(false);
 	const [photoIndex, setPhotoIndex] = useState(0);
-	const [projects, setProjects] = useState<Project[]>([]);
-
-	useEffect(() => {
-		const fetchProject = async () => {
-			const generated = await getProjects();
-			setProjects(generated);
-		};
-		fetchProject();
-	}, []);
 
 	const project = projects.find((p) => p.id === id);
 
@@ -35,11 +28,13 @@ export default function ProjectDetail() {
 		);
 	}
 
-	const slides = project.images.map((image) => ({
-		src: image.src,
-		alt: image.caption || "",
-		description: image.caption || "",
-	}));
+	const slides = project.images.map((image) => {
+		return {
+			src: image.src ? cldToUrl(image.src) : "",
+			alt: image.caption || "",
+			description: image.caption || "",
+		};
+	});
 
 	return (
 		<div className="min-h-screen">
@@ -78,10 +73,10 @@ export default function ProjectDetail() {
 									setIsOpen(true);
 								}}
 							>
-								<img
-									loading="lazy"
-									src={image.src}
-									alt={image.caption}
+								<CloudinaryImage
+									image={image.src}
+									width={384}
+									height={288}
 									className="w-full h-72 object-cover rounded-lg transition-all duration-300 group-hover:scale-105 hover:brightness-50"
 								/>
 								{image.caption && (

@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import homeImage1 from "../assets/home/home_1.jpg";
-import homeImage2 from "../assets/home/home_2.jpeg";
-import homeImage3 from "../assets/home/home_3.jpeg";
+import { CloudinaryImage } from "../components/CloudinaryImage";
+import { homeAssets } from "../data/home_assets";
 
 export default function Home() {
 	return (
@@ -41,15 +40,35 @@ export default function Home() {
 						className="grid grid-cols-2 gap-4"
 					>
 						<div className="space-y-4">
+							<CloudinaryImage
+								image={homeAssets.image1}
+								height={192}
+								width={240}
+								className="w-full h-48 object-cover rounded-lg"
+							/>
+							<CloudinaryImage
+								image={homeAssets.image2}
+								height={256}
+								width={240}
+								className="w-full h-64 object-cover rounded-lg"
+							/>
+						</div>
+						<div className="pt-8">
+							<CloudinaryImage
+								image={homeAssets.image3}
+								className="w-full h-80 object-cover rounded-lg"
+							/>
+						</div>
+						{/* <div className="space-y-4">
 							<img
 								loading="lazy"
-								src={homeImage1}
+								src="https://res.cloudinary.com/dqitfuvhs/image/upload/f_auto,q_auto/v1/eva-portfolio/home/n3jp5iluempeslupb8e0"
 								alt="Profile Picture 1"
 								className="w-full h-48 object-cover rounded-lg"
 							/>
 							<img
 								loading="lazy"
-								src={homeImage2}
+								src="https://res.cloudinary.com/dqitfuvhs/image/upload/f_auto,q_auto/v1/eva-portfolio/home/fkd6nnfma86bmukvzkr2"
 								alt="Profile Picuture 2"
 								className="w-full h-64 object-cover rounded-lg"
 							/>
@@ -57,11 +76,11 @@ export default function Home() {
 						<div className="pt-8">
 							<img
 								loading="lazy"
-								src={homeImage3}
+								src="https://res.cloudinary.com/dqitfuvhs/image/upload/f_auto/q_auto/v1/eva-portfolio/home/u36aqoviosgs6cpilc5o?_a=DAJCwlWIZAA0"
 								alt="Profile Picture 3"
 								className="w-full h-80 object-cover rounded-lg"
 							/>
-						</div>
+						</div> */}
 					</motion.div>
 				</div>
 			</div>

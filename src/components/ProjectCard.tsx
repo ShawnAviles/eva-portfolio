@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Eye } from "lucide-react";
 import { Link } from "react-router-dom";
+import { CloudinaryImage } from "./CloudinaryImage";
 
 interface ProjectCardProps {
 	id: string;
@@ -22,10 +23,10 @@ export default function ProjectCard({
 			className="group relative overflow-hidden rounded-xl"
 		>
 			<Link to={`/portfolio/${id}`}>
-				<img
-					loading="lazy"
-					src={image}
-					alt={title}
+				<CloudinaryImage
+					image={image}
+					width={384}
+					height={288}
 					className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-110"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
