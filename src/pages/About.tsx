@@ -145,6 +145,8 @@ export default function About() {
 						<a
 							className="btn btn-primary"
 							href={resume}
+							target="_blank"
+							rel="noopener noreferrer"
 							download="Eva_Aviles_Resume.pdf"
 						>
 							Download Resume
