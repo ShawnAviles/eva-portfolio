@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CloudinaryImage } from "../components/CloudinaryImage";
-import { homeAssets } from "../data/home_assets";
+import { homeAssets } from "../data/homeAssets";
 
 export default function Home() {
 	return (
@@ -12,7 +12,7 @@ export default function Home() {
 					<motion.div
 						initial={{ opacity: 0, x: -20 }}
 						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.6 }}
+						transition={{ duration: 0.6, ease: "backIn" }}
 					>
 						<h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-primary mb-6">
 							Eva Aviles
@@ -59,28 +59,6 @@ export default function Home() {
 								className="w-full h-80 object-cover rounded-lg"
 							/>
 						</div>
-						{/* <div className="space-y-4">
-							<img
-								loading="lazy"
-								src="https://res.cloudinary.com/dqitfuvhs/image/upload/f_auto,q_auto/v1/eva-portfolio/home/n3jp5iluempeslupb8e0"
-								alt="Profile Picture 1"
-								className="w-full h-48 object-cover rounded-lg"
-							/>
-							<img
-								loading="lazy"
-								src="https://res.cloudinary.com/dqitfuvhs/image/upload/f_auto,q_auto/v1/eva-portfolio/home/fkd6nnfma86bmukvzkr2"
-								alt="Profile Picuture 2"
-								className="w-full h-64 object-cover rounded-lg"
-							/>
-						</div>
-						<div className="pt-8">
-							<img
-								loading="lazy"
-								src="https://res.cloudinary.com/dqitfuvhs/image/upload/f_auto/q_auto/v1/eva-portfolio/home/u36aqoviosgs6cpilc5o?_a=DAJCwlWIZAA0"
-								alt="Profile Picture 3"
-								className="w-full h-80 object-cover rounded-lg"
-							/>
-						</div> */}
 					</motion.div>
 				</div>
 			</div>

@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import image from "../assets/about/working.jpg";
 import resume from "../assets/resume.pdf";
 import { Palette, Hammer, Brush, FileSpreadsheet } from "lucide-react";
+import { CloudinaryImage } from "../components/CloudinaryImage";
+import { aboutAssets } from "../data/aboutAssets";
 
 export default function About() {
 	const experiences = [
@@ -72,9 +73,10 @@ export default function About() {
 						animate={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.6, delay: 0.2 }}
 					>
-						<img
-							src={image}
-							alt="Eva at work"
+						<CloudinaryImage
+							image={aboutAssets.image1}
+							height={500}
+							width={587}
 							className="w-full h-[500px] object-cover rounded-lg shadow-lg"
 						/>
 					</motion.div>

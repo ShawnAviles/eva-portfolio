@@ -9,6 +9,7 @@ interface CloudinaryImageProps extends React.HTMLAttributes<HTMLDivElement> {
 	height?: number | null | string;
 }
 
+// Wrapper around Cloudinary's AdvancedImage component to simplify usage in-app
 export const CloudinaryImage: React.FC<CloudinaryImageProps> = ({
 	image,
 	width = null,

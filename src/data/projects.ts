@@ -4,8 +4,7 @@
 // Switched to using Cloudinary for image hosting + CDN,
 // see portfolio_assets.ts for more info
 
-import { projectsDataF2024 } from "./projectDataF2024";
-
+import { portfolioAssets } from "./portfolioAssets";
 export interface Project {
 	id: string; // name of folder
 	title: string; // name of project formatted
@@ -179,6 +178,6 @@ export const getProjects = async (): Promise<Project[]> => {
 		const projects = await generateImageUrls();
 		return projects;
 	} else {
-		return projectsDataF2024;
+		return portfolioAssets;
 	}
 };

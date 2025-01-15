@@ -1,12 +1,8 @@
 import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
-// import { useState, useEffect } from "react";
-// import { Project, getProjects } from "../data/projects";
-import { portfolioAssets as projects } from "../data/portfolio_assets";
+import { portfolioAssets as projects } from "../data/portfolioAssets";
 
 export default function Portfolio() {
-	// const [projects, setProjects] = useState<Project[]>([]);
-
 	return (
 		<div className="min-h-screen">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
