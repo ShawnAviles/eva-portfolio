@@ -142,6 +142,10 @@ export default function About() {
 						<h2 className="text-3xl font-caudex text-center mb-4">
 							Experience
 						</h2>
+						{/* 
+							Can't change name of download :(
+							https://stackoverflow.com/questions/23872902/chrome-download-attribute-not-working-to-replace-the-original-name 
+						*/}
 						<a
 							className="btn btn-primary"
 							href={resume}
